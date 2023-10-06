@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDiemSVNTTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHUYENNGANH">
+    <Key>
+      <PropertyRef Name="MSCN" />
+    </Key>
+    <Property Name="MSCN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenCN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOPs" Relationship="Self.FK_LOP_CHUYENNGANH" FromRole="CHUYENNGANH" ToRole="LOP" />
+    <NavigationProperty Name="MONs" Relationship="Self.FK_MON_CHUYENNGANH" FromRole="CHUYENNGANH" ToRole="MON" />
+  </EntityType>
+  <EntityType Name="GIANGVIEN">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenGV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SĐT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhanLoaiGV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MONs" Relationship="Self.FK_MON_GIANGVIEN" FromRole="GIANGVIEN" ToRole="MON" />
+  </EntityType>
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MSCN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHUYENNGANH" Relationship="Self.FK_LOP_CHUYENNGANH" FromRole="LOP" ToRole="CHUYENNGANH" />
+    <NavigationProperty Name="SINHVIENs" Relationship="Self.FK_SINHVIEN_LOP" FromRole="LOP" ToRole="SINHVIEN" />
+  </EntityType>
+  <EntityType Name="MON">
+    <Key>
+      <PropertyRef Name="MaMon" />
+    </Key>
+    <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenMon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaGV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HocKi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MSCN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHUYENNGANH" Relationship="Self.FK_MON_CHUYENNGANH" FromRole="MON" ToRole="CHUYENNGANH" />
+    <NavigationProperty Name="GIANGVIEN" Relationship="Self.FK_MON_GIANGVIEN" FromRole="MON" ToRole="GIANGVIEN" />
+    <Property Name="MaSV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SINHVIEN" Relationship="QLDiemSVNTTModel.FK_MON_SINHVIEN" FromRole="MON" ToRole="SINHVIEN" />
+    <NavigationProperty Name="DIEMs" Relationship="QLDiemSVNTTModel.FK_DIEM_MON1" FromRole="MON" ToRole="DIEM" />
+  </EntityType>
+  <EntityType Name="SINHVIEN">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTenSV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaLop" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOP" Relationship="Self.FK_SINHVIEN_LOP" FromRole="SINHVIEN" ToRole="LOP" />
+    <Property Name="MaMon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MONs" Relationship="QLDiemSVNTTModel.FK_MON_SINHVIEN" FromRole="SINHVIEN" ToRole="MON" />
+    <NavigationProperty Name="DIEMs" Relationship="QLDiemSVNTTModel.FK_DIEM_SINHVIEN1" FromRole="SINHVIEN" ToRole="DIEM" />
+  </EntityType>
+  <Association Name="FK_LOP_CHUYENNGANH">
+    <End Role="CHUYENNGANH" Type="Self.CHUYENNGANH" Multiplicity="1" />
+    <End Role="LOP" Type="Self.LOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUYENNGANH">
+        <PropertyRef Name="MSCN" />
+      </Principal>
+      <Dependent Role="LOP">
+        <PropertyRef Name="MSCN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MON_CHUYENNGANH">
+    <End Role="CHUYENNGANH" Type="Self.CHUYENNGANH" Multiplicity="0..1" />
+    <End Role="MON" Type="Self.MON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUYENNGANH">
+        <PropertyRef Name="MSCN" />
+      </Principal>
+      <Dependent Role="MON">
+        <PropertyRef Name="MSCN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MON_GIANGVIEN">
+    <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="0..1" />
+    <End Role="MON" Type="Self.MON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIANGVIEN">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="MON">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SINHVIEN_LOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="SINHVIEN">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDiemSVNTTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHUYENNGANHs" EntityType="Self.CHUYENNGANH" />
+    <EntitySet Name="GIANGVIENs" EntityType="Self.GIANGVIEN" />
+    <EntitySet Name="LOPs" EntityType="Self.LOP" />
+    <EntitySet Name="MONs" EntityType="Self.MON" />
+    <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
+    <AssociationSet Name="FK_LOP_CHUYENNGANH" Association="Self.FK_LOP_CHUYENNGANH">
+      <End Role="CHUYENNGANH" EntitySet="CHUYENNGANHs" />
+      <End Role="LOP" EntitySet="LOPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MON_CHUYENNGANH" Association="Self.FK_MON_CHUYENNGANH">
+      <End Role="CHUYENNGANH" EntitySet="CHUYENNGANHs" />
+      <End Role="MON" EntitySet="MONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MON_GIANGVIEN" Association="Self.FK_MON_GIANGVIEN">
+      <End Role="GIANGVIEN" EntitySet="GIANGVIENs" />
+      <End Role="MON" EntitySet="MONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SINHVIEN_LOP" Association="Self.FK_SINHVIEN_LOP">
+      <End Role="LOP" EntitySet="LOPs" />
+      <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+    </AssociationSet>
+    <FunctionImport Name="TIMKIEM" ReturnType="Collection(QLDiemSVNTTModel.TIMKIEM_Result)">
+      <Parameter Name="MSSV" Mode="In" Type="String" />
+      <Parameter Name="MAMON" Mode="In" Type="String" />
+      <Parameter Name="MACN" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SUASV">
+      <Parameter Name="MASV" Mode="In" Type="String" />
+      <Parameter Name="DIEMTHUONGKI" Mode="In" Type="Double" />
+      <Parameter Name="DIEMTHUCHANH" Mode="In" Type="Double" />
+      <Parameter Name="DIEMGIUAKI" Mode="In" Type="Double" />
+      <Parameter Name="DIEMTHI" Mode="In" Type="Double" />
+      <Parameter Name="DIEMTONGKET" Mode="In" Type="Double" />
+      <Parameter Name="THANGDIEM4" Mode="In" Type="String" />
+      <Parameter Name="GHICHU" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="XOADIEM">
+      <Parameter Name="MASV" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="FK_MON_SINHVIEN" Association="QLDiemSVNTTModel.FK_MON_SINHVIEN">
+      <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+      <End Role="MON" EntitySet="MONs" />
+    </AssociationSet>
+    <EntitySet Name="thongtindiemsinhviens" EntityType="QLDiemSVNTTModel.thongtindiemsinhvien" />
+    <EntitySet Name="DIEMs" EntityType="QLDiemSVNTTModel.DIEM" />
+    <AssociationSet Name="FK_DIEM_MON1" Association="QLDiemSVNTTModel.FK_DIEM_MON1">
+      <End Role="MON" EntitySet="MONs" />
+      <End Role="DIEM" EntitySet="DIEMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIEM_SINHVIEN1" Association="QLDiemSVNTTModel.FK_DIEM_SINHVIEN1">
+      <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+      <End Role="DIEM" EntitySet="DIEMs" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="TIMKIEM_Result">
+    <Property Type="String" Name="MaSV" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="HoTenSV" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLop" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TenMon" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="DiemThuongKi" Nullable="true" />
+    <Property Type="Double" Name="DiemThucHanh" Nullable="true" />
+    <Property Type="Double" Name="DiemGiuaKi" Nullable="true" />
+    <Property Type="Double" Name="DiemThi" Nullable="true" />
+    <Property Type="Double" Name="DiemTongKet" Nullable="true" />
+    <Property Type="String" Name="THANGDIEM4" Nullable="true" MaxLength="1" />
+  </ComplexType>
+  <Association Name="FK_MON_SINHVIEN">
+    <End Type="QLDiemSVNTTModel.SINHVIEN" Role="SINHVIEN" Multiplicity="0..1" />
+    <End Type="QLDiemSVNTTModel.MON" Role="MON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SINHVIEN">
+        <PropertyRef Name="MaSV" />
+      </Principal>
+      <Dependent Role="MON">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="thongtindiemsinhvien">
+    <Key>
+      <PropertyRef Name="MaSV" />
+      <PropertyRef Name="TenMon" />
+    </Key>
+    <Property Name="MaSV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HoTenSV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenLop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TenMon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiemThuongKi" Type="Double" />
+    <Property Name="DiemThucHanh" Type="Double" />
+    <Property Name="DiemGiuaKi" Type="Double" />
+    <Property Name="DiemThi" Type="Double" />
+    <Property Name="DiemTongKet" Type="Double" />
+    <Property Name="HanhKiem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HocKi" Type="Int32" />
+    <Property Name="THANGDIEM4" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DIEM">
+    <Key>
+      <PropertyRef Name="MaSV" />
+      <PropertyRef Name="MaMon" />
+    </Key>
+    <Property Name="MaSV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaMon" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HanhKiem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HocKi" Type="Int32" />
+    <Property Name="DiemThuongKi" Type="Double" />
+    <Property Name="DiemGiuaKi" Type="Double" />
+    <Property Name="DiemThucHanh" Type="Double" />
+    <Property Name="DiemThi" Type="Double" />
+    <Property Name="DiemTongKet" Type="Double" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MON" Relationship="QLDiemSVNTTModel.FK_DIEM_MON1" FromRole="DIEM" ToRole="MON" />
+    <NavigationProperty Name="SINHVIEN" Relationship="QLDiemSVNTTModel.FK_DIEM_SINHVIEN1" FromRole="DIEM" ToRole="SINHVIEN" />
+  </EntityType>
+  <Association Name="FK_DIEM_MON1">
+    <End Type="QLDiemSVNTTModel.MON" Role="MON" Multiplicity="1" />
+    <End Type="QLDiemSVNTTModel.DIEM" Role="DIEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MON">
+        <PropertyRef Name="MaMon" />
+      </Principal>
+      <Dependent Role="DIEM">
+        <PropertyRef Name="MaMon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIEM_SINHVIEN1">
+    <End Type="QLDiemSVNTTModel.SINHVIEN" Role="SINHVIEN" Multiplicity="1" />
+    <End Type="QLDiemSVNTTModel.DIEM" Role="DIEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SINHVIEN">
+        <PropertyRef Name="MaSV" />
+      </Principal>
+      <Dependent Role="DIEM">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanlydiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblGIANG_VIEN">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenGV" Type="nvarchar" MaxLength="30" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" />
+    <Property Name="PhanLoaiGV" Type="nvarchar" MaxLength="20" />
+    <Property Name="Anh" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Quanlydiem.dbo.tblKET_QUA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblKET_QUA">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLop" Type="nvarchar" MaxLength="10" />
+    <Property Name="MaMon" Type="nvarchar" MaxLength="10" />
+    <Property Name="DiemTB" Type="float" />
+    <Property Name="DiemThiLan1" Type="float" />
+    <Property Name="DiemThiLan2" Type="float" />
+    <Property Name="DiemTongKet" Type="float" />
+    <Property Name="HanhKiem" Type="nvarchar" MaxLength="20" />
+    <Property Name="HocKi" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Quanlydiem.dbo.tblKET_QUA2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblKET_QUA2">
+          <Property Name="MaSV" Type="nvarchar" MaxLength="10" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLop" Type="nvarchar" MaxLength="10" />
+          <Property Name="TenMon" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiemThiLai" Type="nvarchar" MaxLength="50" />
+          <Property Name="HocKi" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Quanlydiem.dbo.tblKET_QUA3' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblKET_QUA3">
+          <Property Name="MaSV" Type="nvarchar" MaxLength="10" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLop" Type="nvarchar" MaxLength="5" />
+          <Property Name="TenMon" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiemHocLai" Type="float" />
+          <Property Name="HocKi" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tblKHOA">
+    <Key>
+      <PropertyRef Name="MaKhoa" />
+    </Key>
+    <Property Name="MaKhoa" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblLOGIN">
+    <Key>
+      <PropertyRef Name="TenDN" />
+      <PropertyRef Name="MatKhau" />
+    </Key>
+    <Property Name="TenDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quyen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblLOP">
+    <Key>
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaKhoa" Type="nvarchar" MaxLength="10" />
+    <Property Name="MaLop" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenLop" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblMON">
+    <Key>
+      <PropertyRef Name="MaMon" />
+    </Key>
+    <Property Name="MaMon" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenMon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SoDVHT" Type="int" />
+    <Property Name="MaGV" Type="nvarchar" MaxLength="10" />
+    <Property Name="HocKi" Type="nvarchar" MaxLength="10" />
+    <Property Name="MaKhoa" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblSINH_VIEN">
+    <Key>
+      <PropertyRef Name="MaSv" />
+    </Key>
+    <Property Name="MaSv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="5" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLop" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_tblKET_QUA_tblLOP">
+    <End Role="tblLOP" Type="Self.tblLOP" Multiplicity="0..1" />
+    <End Role="tblKET_QUA" Type="Self.tblKET_QUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLOP">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="tblKET_QUA">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKET_QUA_tblMON">
+    <End Role="tblMON" Type="Self.tblMON" Multiplicity="0..1" />
+    <End Role="tblKET_QUA" Type="Self.tblKET_QUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMON">
+        <PropertyRef Name="MaMon" />
+      </Principal>
+      <Dependent Role="tblKET_QUA">
+        <PropertyRef Name="MaMon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKET_QUA_tblSINH_VIEN">
+    <End Role="tblSINH_VIEN" Type="Self.tblSINH_VIEN" Multiplicity="1" />
+    <End Role="tblKET_QUA" Type="Self.tblKET_QUA" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblSINH_VIEN">
+        <PropertyRef Name="MaSv" />
+      </Principal>
+      <Dependent Role="tblKET_QUA">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLOP_tblKHOA">
+    <End Role="tblKHOA" Type="Self.tblKHOA" Multiplicity="0..1" />
+    <End Role="tblLOP" Type="Self.tblLOP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKHOA">
+        <PropertyRef Name="MaKhoa" />
+      </Principal>
+      <Dependent Role="tblLOP">
+        <PropertyRef Name="MaKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMON_tblGIANG_VIEN">
+    <End Role="tblGIANG_VIEN" Type="Self.tblGIANG_VIEN" Multiplicity="0..1" />
+    <End Role="tblMON" Type="Self.tblMON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGIANG_VIEN">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="tblMON">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSINH_VIEN_tblLOP">
+    <End Role="tblLOP" Type="Self.tblLOP" Multiplicity="0..1" />
+    <End Role="tblSINH_VIEN" Type="Self.tblSINH_VIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLOP">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="tblSINH_VIEN">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanlydiemModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGIANG_VIEN" EntityType="Self.tblGIANG_VIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKHOA" EntityType="Self.tblKHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLOGIN" EntityType="Self.tblLOGIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLOP" EntityType="Self.tblLOP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMON" EntityType="Self.tblMON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSINH_VIEN" EntityType="Self.tblSINH_VIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKET_QUA" EntityType="Self.tblKET_QUA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblKET_QUA].[MaSV] AS [MaSV], 
+    [tblKET_QUA].[HoTen] AS [HoTen], 
+    [tblKET_QUA].[MaLop] AS [MaLop], 
+    [tblKET_QUA].[MaMon] AS [MaMon], 
+    [tblKET_QUA].[DiemTB] AS [DiemTB], 
+    [tblKET_QUA].[DiemThiLan1] AS [DiemThiLan1], 
+    [tblKET_QUA].[DiemThiLan2] AS [DiemThiLan2], 
+    [tblKET_QUA].[DiemTongKet] AS [DiemTongKet], 
+    [tblKET_QUA].[HanhKiem] AS [HanhKiem], 
+    [tblKET_QUA].[HocKi] AS [HocKi], 
+    [tblKET_QUA].[GhiChu] AS [GhiChu]
+    FROM [dbo].[tblKET_QUA] AS [tblKET_QUA]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tblKET_QUA_tblLOP" Association="Self.FK_tblKET_QUA_tblLOP">
+      <End Role="tblLOP" EntitySet="tblLOP" />
+      <End Role="tblKET_QUA" EntitySet="tblKET_QUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKET_QUA_tblMON" Association="Self.FK_tblKET_QUA_tblMON">
+      <End Role="tblMON" EntitySet="tblMON" />
+      <End Role="tblKET_QUA" EntitySet="tblKET_QUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKET_QUA_tblSINH_VIEN" Association="Self.FK_tblKET_QUA_tblSINH_VIEN">
+      <End Role="tblSINH_VIEN" EntitySet="tblSINH_VIEN" />
+      <End Role="tblKET_QUA" EntitySet="tblKET_QUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLOP_tblKHOA" Association="Self.FK_tblLOP_tblKHOA">
+      <End Role="tblKHOA" EntitySet="tblKHOA" />
+      <End Role="tblLOP" EntitySet="tblLOP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMON_tblGIANG_VIEN" Association="Self.FK_tblMON_tblGIANG_VIEN">
+      <End Role="tblGIANG_VIEN" EntitySet="tblGIANG_VIEN" />
+      <End Role="tblMON" EntitySet="tblMON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSINH_VIEN_tblLOP" Association="Self.FK_tblSINH_VIEN_tblLOP">
+      <End Role="tblLOP" EntitySet="tblLOP" />
+      <End Role="tblSINH_VIEN" EntitySet="tblSINH_VIEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

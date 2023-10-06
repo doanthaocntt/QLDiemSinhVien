@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnQLDiemSinhVien", "DoAnQLDiemSinhVien\DoAnQLDiemSinhVien.csproj", "{2BD78035-2CAB-4FB8-8AA5-B465597761AD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup Server", "Setup Server\Setup Server.vdproj", "{3C50CC06-DB31-4CDB-98F8-BABBFBC5179F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BD78035-2CAB-4FB8-8AA5-B465597761AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD78035-2CAB-4FB8-8AA5-B465597761AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD78035-2CAB-4FB8-8AA5-B465597761AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD78035-2CAB-4FB8-8AA5-B465597761AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C50CC06-DB31-4CDB-98F8-BABBFBC5179F}.Debug|Any CPU.ActiveCfg = Debug
+		{3C50CC06-DB31-4CDB-98F8-BABBFBC5179F}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0079D6C3-D84B-400B-9A24-AE4F1D5D17F8}
+	EndGlobalSection
+EndGlobal

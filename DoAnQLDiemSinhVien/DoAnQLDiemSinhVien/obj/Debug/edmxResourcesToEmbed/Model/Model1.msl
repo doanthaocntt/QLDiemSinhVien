@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDiemSVNTTModelStoreContainer" CdmEntityContainer="QLDiemSVNTTEntities">
+    <EntitySetMapping Name="CHUYENNGANHs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.CHUYENNGANH">
+        <MappingFragment StoreEntitySet="CHUYENNGANH">
+          <ScalarProperty Name="MSCN" ColumnName="MSCN" />
+          <ScalarProperty Name="TenCN" ColumnName="TenCN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIANGVIENs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.GIANGVIEN">
+        <MappingFragment StoreEntitySet="GIANGVIEN">
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="SĐT" ColumnName="SĐT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhanLoaiGV" ColumnName="PhanLoaiGV" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="MSCN" ColumnName="MSCN" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.MON">
+        <MappingFragment StoreEntitySet="MON">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="MSCN" ColumnName="MSCN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SINHVIENs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.SINHVIEN">
+        <MappingFragment StoreEntitySet="SINHVIEN">
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoTenSV" ColumnName="HoTenSV" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TIMKIEM" FunctionName="QLDiemSVNTTModel.Store.TIMKIEM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLDiemSVNTTModel.TIMKIEM_Result">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoTenSV" ColumnName="HoTenSV" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="DiemThuongKi" ColumnName="DiemThuongKi" />
+          <ScalarProperty Name="DiemThucHanh" ColumnName="DiemThucHanh" />
+          <ScalarProperty Name="DiemGiuaKi" ColumnName="DiemGiuaKi" />
+          <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
+          <ScalarProperty Name="DiemTongKet" ColumnName="DiemTongKet" />
+          <ScalarProperty Name="THANGDIEM4" ColumnName="THANGDIEM4" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SUASV" FunctionName="QLDiemSVNTTModel.Store.SUASV" />
+    <FunctionImportMapping FunctionImportName="XOADIEM" FunctionName="QLDiemSVNTTModel.Store.XOADIEM" />
+    <EntitySetMapping Name="thongtindiemsinhviens">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.thongtindiemsinhvien">
+        <MappingFragment StoreEntitySet="thongtindiemsinhvien">
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="THANGDIEM4" ColumnName="THANGDIEM4" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="HanhKiem" ColumnName="HanhKiem" />
+          <ScalarProperty Name="DiemTongKet" ColumnName="DiemTongKet" />
+          <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
+          <ScalarProperty Name="DiemGiuaKi" ColumnName="DiemGiuaKi" />
+          <ScalarProperty Name="DiemThucHanh" ColumnName="DiemThucHanh" />
+          <ScalarProperty Name="DiemThuongKi" ColumnName="DiemThuongKi" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="HoTenSV" ColumnName="HoTenSV" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIEMs">
+      <EntityTypeMapping TypeName="QLDiemSVNTTModel.DIEM">
+        <MappingFragment StoreEntitySet="DIEM">
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="DiemTongKet" ColumnName="DiemTongKet" />
+          <ScalarProperty Name="DiemThi" ColumnName="DiemThi" />
+          <ScalarProperty Name="DiemThucHanh" ColumnName="DiemThucHanh" />
+          <ScalarProperty Name="DiemGiuaKi" ColumnName="DiemGiuaKi" />
+          <ScalarProperty Name="DiemThuongKi" ColumnName="DiemThuongKi" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="HanhKiem" ColumnName="HanhKiem" />
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
